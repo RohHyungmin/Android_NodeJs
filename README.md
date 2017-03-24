@@ -101,7 +101,7 @@ function createData(response, data){
 			var post = {title:data.title, content:data.content, name:data.name};
 			db.collection('qna').insert(post);
 			db.close();
-			data = '<html><head><meta charset="utf-8"/></head><body>등록되었습니다.</body></html>';
+ +			data = 'SUCCESS';
 			send200(response, data, 'text/html');
 		}
 	});
