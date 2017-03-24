@@ -3,6 +3,7 @@ package com.hyugnmin.android.memowithnodejs;
 import com.hyugnmin.android.memowithnodejs.domain.Data;
 import com.hyugnmin.android.memowithnodejs.domain.Qna;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ import java.util.List;
 public class DataStore {
     private static DataStore instance = null;
 
-    private DataStore() {}
+    private DataStore() {datas = new ArrayList<>();}
 
     public static DataStore getInstance() {
      if(instance == null) {
@@ -28,6 +29,16 @@ public class DataStore {
     }
 
     public void setDatas(List<Qna> datas) {
-        this.datas = datas;
+
+        this.datas.clear();
+                for(Qna qna : datas){
+                    this.datas.add(qna);
+                    }
     }
+
+    public void addData(Qna qna) {
+        this.datas.add(qna);
+    }
+
+
 }
